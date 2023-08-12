@@ -1,0 +1,68 @@
+<menuDocument>
+    <menu>
+        <subMenu id="fae">
+            <label>FAE</label>
+                <subMenu id="fae_flipbook">
+                    <label>FAE Flipbook</label>
+                        <scriptMenuStripDynamic id="fae_flipbook_menu_id">
+                        <contentsScriptCode><![CDATA[
+menu_items = []
+for id, geo_nodes in enumerate(list(hou.node("/obj").children())):
+    if geo_nodes.type().name().startswith('fae_filpbook_manager'):
+            if 'flip_book_manager' in geo_nodes.userDataDict():
+                menu_items.append(id)
+                menu_items.append("Add To "+ geo_nodes.name())
+return menu_items
+            ]]>
+                        </contentsScriptCode>
+                        <scriptCode>
+<![CDATA[
+selected_label = kwargs["selectedlabel"].split("Add To ")[-1]
+selected_parms = kwargs["parms"]
+
+for geo_nodes in hou.node("/obj").children():
+    if geo_nodes.name() == selected_label:
+        fae_node = geo_nodes
+
+text_parm = fae_node.parm('main_text').rawValue()
+proceed_normal = True
+
+for parms in selected_parms:
+    cur_node_name = parms.node().path()
+    cur_node_val = parms.name()
+
+    def set_text_font():
+        label = "%s/%s" %(cur_node_name, cur_node_val)
+        text = text_parm + "\n" + str(label) + "  " + str(expression)
+        if str(label) not in fae_node.parm('main_text').rawValue():
+            fae_node.parm('main_text').set(text)
+        else:
+            hou.ui.displayMessage("The Parameter is already Added", buttons=("Okay",))
+
+    try:
+        parms.menuContents()
+        if isinstance(parms.eval(), int):
+            expression ="`pythonexprs(\"hou.parm(\'{0}\').menuLabels()[hou.parm(\'{0}\').eval()]\")`".format(parms.node().path() +"/"+ parms.name())
+        elif isinstance(parms.eval(), str):
+            expression="`pythonexprs(\"hou.parm(\'{0}\').menuLabels()[list(hou.parm(\'{0}\').menuItems()).index(hou.parm(\'{0}\').eval())]\")`".format(parms.node().path() +"/"+ parms.name())
+        set_text_font()         
+        proceed_normal = False
+
+    except: pass
+    
+    if proceed_normal:
+        if isinstance(parms.eval(), float) or \
+                isinstance(parms.eval(), int):
+            expression = "`pythonexprs(\"\'%%.2f\'%%\"+ chs(\'%s/%s\'))`" %(cur_node_name, cur_node_val)
+        else:
+            expression = '`chs("%s/%s")`' %(cur_node_name, cur_node_val)
+        set_text_font()
+]]>               
+                    </scriptCode>
+                    </scriptMenuStripDynamic>
+            </subMenu>
+        </subMenu>
+
+    </menu>
+
+</menuDocument>

@@ -1,8 +1,12 @@
-# houdini_flipbook_manager
+# houdini flipbook manager
 
 :point_down: [Youtube Link]
 
 [![Houdini Flip book manager HDA Video](https://img.youtube.com/vi/hnLAP-H8VjE/0.jpg)](https://www.youtube.com/watch?v=hnLAP-H8VjE)
+
+# houdini flipbook manager(Shotgrid Media upload)
+
+[![Houdini Flip book manager HDA Video](https://img.youtube.com/vi/-Dtw5MkruRUE/0.jpg)](https://www.youtube.com/watch?v=-Dtw5MkruRU)
 
 
 VEX Pulling Camera Properties.

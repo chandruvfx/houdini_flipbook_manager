@@ -1,5 +1,10 @@
 # houdini flipbook manager
 
+A Tiny Obj level HDA which create houdini text based HUD display for user selected camera. 
+Offers xform and scale flexibility to the user, submit the opengl renders to the farm and
+Upload the movs into the SG Version section.
+
+
 :point_down: [Youtube Link]
 
 [![Houdini Flip book manager HDA Video](https://img.youtube.com/vi/hnLAP-H8VjE/0.jpg)](https://www.youtube.com/watch?v=hnLAP-H8VjE)

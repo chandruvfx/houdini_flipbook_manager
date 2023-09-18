@@ -1,5 +1,7 @@
 # houdini flipbook manager
 
+![flip_book_tool_1](https://github.com/chandruvfx/houdini_flipbook_manager/assets/45536998/5d69beeb-de47-4af0-8127-8b1b71ca6cca)
+
 ## Overview
 
 An Houdini Flip Book manager HDA is a play blast tool which expedite artist to create batteries-included text based hud displays, favors submitting into the farm and publish the version to shotgrid. The HDA splitted into two sections. one is do all flipbook related task and another one is for RV related.
@@ -12,6 +14,7 @@ The Flip book tool features were,
 * Artist friendly real time channel parameters inclusion.
 * Options that do , Draft Mov creations inside deadline and Publish into the shotgrid as versions.
 * Play multiple exr files using RV for the given folder path.
+
 
 
 :point_down: [Youtube Link]

@@ -1,8 +1,17 @@
 # houdini flipbook manager
 
-A Tiny Obj level HDA which create houdini text based HUD display for user selected camera. 
-Offers xform and scale flexibility to the user, submit the opengl renders to the farm and
-Upload the movs into the SG Version section.
+## Overview
+
+An Houdini Flip Book manager HDA is a play blast tool which expedite artist to create batteries-included text based hud displays, favors submitting into the farm and publish the version to shotgrid. The HDA splitted into two sections. one is do all flipbook related task and another one is for RV related.
+
+The Flip book tool features were,
+
+* Text based tool includes all the text operations like resizing, colouring and positioning.
+* Houdini Open-GL Farm submission support.
+* Artist free lights inclusion from the houdini scene.
+* Artist friendly real time channel parameters inclusion.
+* Options that do , Draft Mov creations inside deadline and Publish into the shotgrid as versions.
+* Play multiple exr files using RV for the given folder path.
 
 
 :point_down: [Youtube Link]
